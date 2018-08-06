@@ -1,0 +1,21 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+<class name="com.deloitte.Person" table="Person">
+<id name="pid" type="int" column="pid">
+<generator class="assigned"></generator>
+</id>
+<property name="name" column="NAME" type="string"></property>
+<many-to-one name="pp" column="passport" unique="true" class="com.deloitte.Passport" cascade="all" not-null="true"></many-to-one>
+</class>
+
+<class name="com.deloitte.Passport" table="Passport">
+<id name="ppid" type="int" column="PPID ">
+<generator class="assigned"></generator>
+</id>
+<property name="ppname" column="PPNAME"></property>
+</class>
+</hibernate-mapping>
